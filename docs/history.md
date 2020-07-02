@@ -1,4 +1,4 @@
-# History of CodiMD
+# History of HedgeDoc
 
 ## It started with HackMD
 

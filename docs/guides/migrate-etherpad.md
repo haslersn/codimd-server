@@ -1,11 +1,11 @@
 # Pad migration guide from etherpad-lite
 
 The goal of this migration is to do a "dumb" import from all the pads in Etherpad, to notes in
-CodiMD. In particular, the url locations of the pads in Etherpad will be lost. Furthermore, any
+HedgeDoc. In particular, the url locations of the pads in Etherpad will be lost. Furthermore, any
 metadata in Etherpad, such as revisions, author data and also formatted text will not be migrated
-to CodiMD (only the plain text contents).
+to HedgeDoc (only the plain text contents).
 
-Note that this guide is not really meant as a support guide. I migrated my own Etherpad to CodiMD,
+Note that this guide is not really meant as a support guide. I migrated my own Etherpad to HedgeDoc,
 and it turned out to be quite easy in my opinion. In this guide I share my experience. Stuff may
 require some creativity to work properly in your case. When I wrote this guide, I was using
 [etherpad 1.7.0][] and [codimd 1.2.1][]. Good luck!
@@ -14,8 +14,8 @@ require some creativity to work properly in your case. When I wrote this guide, 
 
 - `curl`
 - running Etherpad server
-- running CodiMD server
-- [codimd-cli][]
+- running HedgeDoc server
+- [hedgedoc-cli][]
 
 ## 1. Retrieve the list of pads
 
@@ -36,7 +36,7 @@ weddingchecklist
 
 ## 2. Run the migration
 
-Download [codimd-cli][] and put the script in the same directory as the file containing the pad names.
+Download [hedgedoc-cli][] and put the script in the same directory as the file containing the pad names.
 Add to this directory the file listed below, I called it `migrate-etherpad.sh`. Modify at least the
 configuration settings `ETHERPAD_SERVER` and `CODIMD_SERVER`.
 
@@ -45,17 +45,17 @@ configuration settings `ETHERPAD_SERVER` and `CODIMD_SERVER`.
 
 # migrate-etherpad.sh
 #
-# Description: Migrate pads from etherpad to codimd
+# Description: Migrate pads from etherpad to hedgedoc
 # Author: Daan Sprenkels <hello@dsprenkels.com>
 
-# This script uses the codimd command line script[1] to import a list of pads from
+# This script uses the hedgedoc command line script[1] to import a list of pads from
 # [1]: https://github.com/codimd/cli/blob/master/bin/codimd
 
 # The base url to where etherpad is hosted
 ETHERPAD_SERVER="https://etherpad.example.com"
 
-# The base url where codimd is hosted
-CODIMD_SERVER="https://codimd.example.com"
+# The base url where hedgedoc is hosted
+CODIMD_SERVER="https://hedgedoc.example.com"
 
 # Write a list of pads and the urls which they were migrated to
 REDIRECTS_FILE="redirects.txt"
@@ -73,7 +73,7 @@ for PAD_NAME in $1; do
     PAD_FILE="$(mktemp)"
     curl "$ETHERPAD_SERVER/p/$PAD_NAME/export/txt" >"$PAD_FILE"
 
-    # Import the pad into codimd
+    # Import the pad into hedgedoc
     OUTPUT="$(./codimd import "$PAD_FILE")"
     echo "$PAD_NAME -> $OUTPUT" >>"$REDIRECTS_FILE"
 done
@@ -85,7 +85,7 @@ Call this file like this:
 ./migrate-etherpad.sh pad_names.txt
 ```
 
-This will download all the pads in `pad_names.txt` and put them on CodiMD. They will get assigned
+This will download all the pads in `pad_names.txt` and put them on HedgeDoc. They will get assigned
 random ids, so you won't be able to find them. The script will save the mappings to a file though
 (in my case `redirects.txt`). You can use this file to redirect your users when they visit your
 etherpad using a `301 Permanent Redirect` status code (see the next section).
@@ -95,10 +95,10 @@ etherpad using a `301 Permanent Redirect` status code (see the next section).
 I got a `redirects.txt` file that looked a bit like this:
 
 ```log
-date-ideas -> Found. Redirecting to https://codimd.example.com/mPt0KfiKSBOTQ3mNcdfn
-groceries -> Found. Redirecting to https://codimd.example.com/UukqgwLfhYyUUtARlcJ2_y
-london -> Found. Redirecting to https://codimd.example.com/_d3wa-BE8t4Swv5w7O2_9R
-weddingchecklist -> Found. Redirecting to https://codimd.example.com/XcQGqlBjl0u40wfT0N8TzQ
+date-ideas -> Found. Redirecting to https://hedgedoc.example.com/mPt0KfiKSBOTQ3mNcdfn
+groceries -> Found. Redirecting to https://hedgedoc.example.com/UukqgwLfhYyUUtARlcJ2_y
+london -> Found. Redirecting to https://hedgedoc.example.com/_d3wa-BE8t4Swv5w7O2_9R
+weddingchecklist -> Found. Redirecting to https://hedgedoc.example.com/XcQGqlBjl0u40wfT0N8TzQ
 (...)
 ```
 
@@ -106,16 +106,16 @@ Using some `sed` magic, I changed it to an nginx config snippet:
 
 ```nginx
 location = /p/date-ideas {
-    return 301 https://codimd.example.com/mPt0M1KfiKSBOTQ3mNcdfn;
+    return 301 https://hedgedoc.example.com/mPt0M1KfiKSBOTQ3mNcdfn;
 }
 location = /p/groceries {
-    return 301 https://codimd.example.com/UukqgwLfhYyUUtARlcJ2_y;
+    return 301 https://hedgedoc.example.com/UukqgwLfhYyUUtARlcJ2_y;
 }
 location = /p/london {
-    return 301 https://codimd.example.com/_d3wa-BE8t4Swv5w7O2_9R;
+    return 301 https://hedgedoc.example.com/_d3wa-BE8t4Swv5w7O2_9R;
 }
 location = /p/weddingchecklist {
-    return 301 https://codimd.example.com/XcQGqlBjl0u40wfT0N8TzQ;
+    return 301 https://hedgedoc.example.com/XcQGqlBjl0u40wfT0N8TzQ;
 }
 ```
 
@@ -124,5 +124,5 @@ redirected accordingly.
 
 [etherpad 1.7.0]: https://github.com/ether/etherpad-lite/tree/1.7.0
 [codimd 1.2.1]: https://github.com/codimd/server/tree/1.2.1
-[codimd-cli]: https://github.com/codimd/cli/blob/master/bin/codimd
+[hedgedoc-cli]: https://github.com/codimd/cli/blob/master/bin/codimd
 [howtolistallpads]: https://github.com/ether/etherpad-lite/wiki/How-to-list-all-pads/49701ecdcbe07aea7ad27ffa23aed0d99c2e17db
