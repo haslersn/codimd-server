@@ -1,6 +1,6 @@
 # HedgeDoc
 
-[![#CodiMD on matrix.org][matrix.org-image]][matrix.org-url]
+[![#HedgeDoc on matrix.org][matrix.org-image]][matrix.org-url]
 [![build status][travis-image]][travis-url]
 [![version][github-version-badge]][github-release-page]
 [![POEditor][poeditor-image]][poeditor-url]
@@ -13,7 +13,7 @@ It is inspired by Hackpad, Etherpad and similar collaborative editors. This
 project originated with the team at [HackMD](https://hackmd.io) and now forked
 into its own organisation. [A longer writeup can be read in the history doc](docs/history.md).
 
-[![CodiMD 1.3.2 with its feature demonstration page open](docs/images/CodiMD-1.3.2-features.png)][hedgedoc-demo-features]
+[![HedgeDoc 1.3.2 with its feature demonstration page open](docs/images/CodiMD-1.3.2-features.png)][hedgedoc-demo-features]
 
 ## Community and Contributions
 
@@ -26,7 +26,7 @@ we'll be delighted to help you with the first steps.
 To stay up to date with our work or get support it's recommended to join our
 [Matrix channel][matrix.org-url], stop by our [community forums][hedgedoc-community]
 or subscribe to the [release feed][github-release-feed]. We also engage in
-regular [community calls][hedgedoc-community-calls] ([RSS](https://community.codimd.org/t/codimd-community-call/19.rss)) which you are very welcome to join.
+regular [community calls][hedgedoc-community-calls] ([RSS](https://community.hedgedoc.org/t/codimd-community-call/19.rss)) which you are very welcome to join.
 
 ## Installation / Upgrading
 
@@ -70,26 +70,26 @@ To use HedgeDoc, your browser should match or exceed these versions:
 
 ## Related Tools
 
-Our community has created related tools, we'd like to highlight [hedgedoc-cli](https://github.com/codimd/cli)
+Our community has created related tools, we'd like to highlight [hedgedoc-cli](https://github.com/hedgedoc/cli)
 which lets you use HedgeDoc from the comfort of your command line.
 
 ## License
 
 Licensed under AGPLv3. For our list of contributors, see [AUTHORS](AUTHORS).
 
-[matrix.org-image]: https://img.shields.io/matrix/codimd:matrix.org?logo=matrix&server_fqdn=matrix.org
-[matrix.org-url]: https://riot.im/app/#/room/#codimd:matrix.org
-[travis-image]: https://travis-ci.org/codimd/server.svg?branch=master
-[travis-url]: https://travis-ci.org/codimd/server
-[github-version-badge]: https://img.shields.io/github/release/codimd/server.svg
-[github-release-page]: https://github.com/codimd/server/releases
-[github-release-feed]: https://github.com/codimd/server/releases.atom
-[github-issue-tracker]: https://github.com/codimd/server/issues/
+[matrix.org-image]: https://img.shields.io/matrix/hedgedoc:matrix.org?logo=matrix&server_fqdn=matrix.org
+[matrix.org-url]: https://riot.im/app/#/room/#hedgedoc:matrix.org
+[travis-image]: https://travis-ci.org/hedgedoc/server.svg?branch=master
+[travis-url]: https://travis-ci.org/hedgedoc/server
+[github-version-badge]: https://img.shields.io/github/release/hedgedoc/server.svg
+[github-release-page]: https://github.com/hedgedoc/server/releases
+[github-release-feed]: https://github.com/hedgedoc/server/releases.atom
+[github-issue-tracker]: https://github.com/hedgedoc/server/issues/
 [poeditor-image]: https://img.shields.io/badge/POEditor-translate-blue.svg
 [poeditor-url]: https://poeditor.com/join/project/1OpGjF2Jir
-[hedgedoc-demo]: https://demo.codimd.org
-[hedgedoc-demo-features]: https://demo.codimd.org/features
-[hedgedoc-community]: https://community.codimd.org
-[hedgedoc-community-calls]: https://community.codimd.org/t/codimd-community-call/19
-[social-mastodon]: https://social.codimd.org/mastodon
+[hedgedoc-demo]: https://demo.hedgedoc.org
+[hedgedoc-demo-features]: https://demo.hedgedoc.org/features
+[hedgedoc-community]: https://community.hedgedoc.org
+[hedgedoc-community-calls]: https://community.hedgedoc.org/t/codimd-community-call/19
+[social-mastodon]: https://social.hedgedoc.org/mastodon
 [social-mastodon-image]: https://img.shields.io/mastodon/follow/18547?domain=https%3A%2F%2Fsocial.snopyta.org&style=social
