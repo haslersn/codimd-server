@@ -11,7 +11,7 @@ This guide uses the generic OAuth2 module for compatibility with Nextcloud 13 an
    At the top there's OAuth 2.0-Clients.  
    ![Where to find OAuth2 in Nextcloud](../../images/auth/nextcloud-oauth2-1-settings.png)
 
-3. Add your HedgeDoc instance by giving it a *name* (perhaps HedgeDoc, but could be anything) and a *Redirection-URI*. The Redirection-URI will be `\<your-codimd-url\>/auth/oauth2/callback`. Click <kbd>Add</kbd>.  
+3. Add your HedgeDoc instance by giving it a *name* (perhaps HedgeDoc, but could be anything) and a *Redirection-URI*. The Redirection-URI will be `\<your-hedgedoc-url\>/auth/oauth2/callback`. Click <kbd>Add</kbd>.  
    ![Adding a client to Nextcloud](../../images/auth/nextcloud-oauth2-2-client-add.png)
 
 
