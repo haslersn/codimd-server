@@ -7,8 +7,8 @@
         "Notes"
     ],
     "website": "https://hedgedoc.org",
-    "repository": "https://github.com/codimd/server",
-    "logo": "https://github.com/codimd/server/raw/master/public/codimd-icon-1024.png",
+    "repository": "https://github.com/hedgedoc/server",
+    "logo": "https://github.com/hedgedoc/server/raw/master/public/hedgedoc-icon-1024.png",
     "success_url": "/",
     "env": {
         "NPM_CONFIG_PRODUCTION": {
