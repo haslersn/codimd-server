@@ -169,7 +169,7 @@ paths:
               markdownExample:
                 "$ref": '#/components/examples/markdownExample'
       responses:
-        '200':
+        '201':
           description: Get information about the newly created note.
           content:
             application/json:
@@ -224,7 +224,7 @@ paths:
               markdownExample:
                 "$ref": '#/components/examples/markdownExample'
       responses:
-        '200':
+        '201':
           description: Get information about the newly created note.
           content:
             application/json:
@@ -501,7 +501,7 @@ paths:
               type: string
               format: binary
       responses:
-        '200':
+        '201':
           description: The image was uploaded successfully.
         '401':
           "$ref": "#/components/responses/UnauthorizedError"
